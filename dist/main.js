@@ -1,0 +1,26 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Auto_1 = __importDefault(require("./Auto"));
+const Moto_1 = __importDefault(require("./Moto"));
+const Camion_1 = __importDefault(require("./Camion"));
+const RegistroAutomotor_1 = __importDefault(require("./RegistroAutomotor"));
+const registro = new RegistroAutomotor_1.default();
+const auto1 = new Auto_1.default('ABC123', 'Ford', 'Ka', 2010);
+const moto1 = new Moto_1.default('XYZ789', 'Zanella', 'RX 150', 2018);
+const camion1 = new Camion_1.default('LMN456', 'Mercedes', '1634', 2007);
+registro.agregarVehiculo(auto1);
+registro.agregarVehiculo(moto1);
+registro.agregarVehiculo(camion1);
+console.log("Vehículos en el registro:");
+registro.mostrarVehiculos();
+console.log("\nModificando vehículo con patente 'ABC123':");
+registro.modificarVehiculo('ABC123', { marca: 'Chevrolet', modelo: 'Corsa', año: 2006 });
+console.log("\nVehículos después de modificar:");
+registro.mostrarVehiculos();
+console.log("\nDando de baja el vehículo con patente 'XYZ789':");
+registro.darDeBaja('XYZ789');
+console.log("\nVehículos después de dar de baja:");
+registro.mostrarVehiculos();
